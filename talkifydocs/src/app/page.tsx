@@ -48,7 +48,7 @@ export default async function Home() {
               </Link>
             )}
           </div>
-          <p className="text-xs md:text-sm lg:text-sm max-w-xl mx-auto mt-4">Made by Amil Ali</p>
+          <p className="text-xs md:text-sm lg:text-sm max-w-xl mx-auto mt-4">Made with &#10084; Amil Ali</p>
         </div>
       </div>
     </Theme>
