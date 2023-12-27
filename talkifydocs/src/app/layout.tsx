@@ -6,7 +6,9 @@ import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'TalkifyDocs'
+  title: 'TalkifyDocs | Chat with your customers',
+  description: 'TalkifyDocs is a chat widget that helps you talk to your customers',
+  keywords: ['talkifydocs', 'chat', 'widget', 'customer', 'support'],
 }
 
 export default function RootLayout({
