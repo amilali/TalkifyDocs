@@ -1,0 +1,32 @@
+h1{
+color: white;
+}
+.btn{
+    /* color: rgb(255, 255, 255); */
+    /* background-color: transparent;    */
+    margin-top: -10px;
+    margin-bottom: 10px;
+    /* border: 2px solid white; */
+}
+.btn:hover{
+    background-color: #fff;
+    color: black;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 18px 18px 250px 50px #ffffff80;
+
+}
+img{
+margin-bottom: 0px;
+margin: 0;
+padding: 0;
+
+}
+p{
+color: white;
+}
+
+
+@media (max-width: 768px) {
+  p {
+    font-size: 2px; 
+  }
+}
