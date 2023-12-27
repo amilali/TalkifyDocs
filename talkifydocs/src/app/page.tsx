@@ -20,13 +20,13 @@ export default async function Home() {
               alt=""
               className="w-full h-40 object-contain"
             />
-           
+
           </div>
-          
+
           <div className="flex mt-4 justify-center">
             {isAuth && (
-              <Button className="btn p-2"><UserButton afterSignOutUrl='/'  />
-                 <h5 className="m-2">Go to Chats</h5><LogIn className="w-4 h-4 ml-2" />
+              <Button className="btn p-2"><UserButton afterSignOutUrl='/' />
+                <h5 className="m-2">Go to Chats</h5><LogIn className="w-4 h-4 ml-2" />
               </Button>
             )}
           </div>
@@ -48,7 +48,7 @@ export default async function Home() {
               </Link>
             )}
           </div>
-        <p className="text-xs md:text-sm lg:text-sm max-w-xl mx-auto mt-4">Made by Amil Ali</p>
+          <p className="text-xs md:text-sm lg:text-sm max-w-xl mx-auto mt-4">Made by Amil Ali</p>
         </div>
       </div>
     </Theme>
