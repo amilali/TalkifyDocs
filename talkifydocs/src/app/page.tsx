@@ -1,3 +1,4 @@
+// "use client"
 import { Button } from "@/components/ui/button";
 import '../app/style.css';
 import { UserButton, auth } from "@clerk/nextjs";
@@ -5,12 +6,14 @@ import Link from 'next/link';
 import { LogIn } from "lucide-react";
 import { Theme } from '@radix-ui/themes';
 import FileUpload from "@/components/ui/FileUpload";
+// import 'react-toastify/dist/ReactToastify.css';
+// import { useToast } from "@/components/ui/use-toast";
 
 export default async function Home() {
   const authData = await auth();
   const userId = authData.userId;
   const isAuth = !!userId;
-
+  // const { toast } = useToast()
   return (
     <Theme appearance="light" accentColor="mint">
       <div className="w-screen min-h-screen bg-gradient-to-br from-sky-400 to-blue-700 flex items-center justify-center">
