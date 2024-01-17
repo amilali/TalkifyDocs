@@ -61,7 +61,7 @@ export default async function Home() {
                     Join millions of students, researchers, and professionals to instantly answer questions and understand research with AI.
                   </p>
                   <Link href="/sign-in">
-                    <Button className="btn border-emerald-500 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]">
+                    <Button className="btn">
                       Start Chatting - <i className='underline underline-offset-4 decoration-3 decoration-solid decoration-blue-200'>it's free</i>
                       <LogIn className="w-4 h-4 ml-2" />
                     </Button>
