@@ -4,6 +4,7 @@ import '../app/global.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import Providers from '@/components/Providers'
 import { Toaster } from 'react-hot-toast';
+import { dark , neobrutalism  } from '@clerk/themes';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClerkProvider>
+        <ClerkProvider appearance={{
+          signIn: { baseTheme: neobrutalism },
+        }}>
           <Providers>
             {children}
           </Providers>
