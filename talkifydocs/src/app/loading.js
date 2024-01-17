@@ -16,7 +16,7 @@ const Loader = ({ color }) => {
 
 const loading = () => {
   return (
-    <div className='min-w-dvw min-h-dvh bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-400 to-indigo-900 flex items-center justify-center'><Loader /></div>
+    <div className='min-w-dvw min-h-dvh bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 via-sky-600 via-10% to-slate-950 to-60% flex items-center justify-center'><Loader /></div>
   )
 }
 
