@@ -4,7 +4,7 @@ import { Divide } from "lucide-react";
 
 export default function Page() {
   return (
-    <div className="min-h-screen flex justify-center items-center bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-400 to-indigo-900 overflow-x-auto">
+    <div className="min-h-screen flex justify-center items-center bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-400 to-slate-950 overflow-x-auto">
       <div className="w-1/2 h-1/2 flex justify-center items-center">
         <SignIn />
       </div>

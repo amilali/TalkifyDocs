@@ -8,10 +8,8 @@ import { Theme } from '@radix-ui/themes';
 import FileUpload from "@/components/ui/FileUpload";
 import dynamic from 'next/dynamic'
 import Skeleton from './Skeleton';
-// import {Footer} from '../components/Footer'
 import { CircularAvatar } from '../components/CircularAvatar';
 import { TopBanner } from '@/components/TopBanner';
-import { Navigation } from '../components/Navigation';
 import { Ratingg } from '../components/Rating';
 
 const Testimonials = dynamic(() => import('../components/ui/Testimonials'), {
@@ -26,19 +24,16 @@ export default async function Home() {
   return (
     <>
       <Theme appearance="light" accentColor="mint">
-        <div className="min-w-dvw min-h-dvh bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-400 to-indigo-900 flex items-center justify-center">
+
+        <div className="min-w-dvw min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 via-sky-600 via-10% to-slate-950 to-60% flex items-center justify-center">
           <div className="text-center w-screen">
             <div className="flex items-center mb-4">
               <img
                 src="https://res.cloudinary.com/djcmgdn0x/image/upload/v1703599406/Group_3602_1_zkvanv.png"
                 alt=""
-                className="w-full h-44 mt-10 object-contain"
+                className="w-screen h-44 mt-10 object-contain"
               />
             </div>
-
-
-
-
 
             <div className="min-w-screen mt-4 flex flex-col justify-center items-center">
               {isAuth ? (
@@ -81,6 +76,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
+
       </Theme>
     </>
   );
