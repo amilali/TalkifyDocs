@@ -11,7 +11,7 @@ export function TopBanner() {
   };
 
   return isVisible ? (
-    <div className="fixed top-0 left-0 right-0 rounded-full mx-8 mt-2 border-l-4 border-blue-900 bg-gray-900 p-4">
+    <div className="fixed top-0 left-0 right-0 rounded-full mx-8 mt-2 border-l-4 backdrop-blur-sm border-blue-900 bg-gray-900 p-4">
       <div className="flex items-center justify-between space-x-4">
         <div>
         </div>
