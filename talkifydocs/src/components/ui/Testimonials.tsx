@@ -8,7 +8,8 @@ const Testimonials = () => {
       <Marquee
         speed={25}
         gradient={false}
-        gradientColor="#62B1FF"
+        gradientColor="#020617"
+        gradientWidth={100}
         className='w-screen mt-10'
         direction="right"
         pauseOnHover={true}

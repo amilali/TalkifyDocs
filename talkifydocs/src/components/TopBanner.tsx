@@ -16,7 +16,7 @@ export function TopBanner() {
         <div>
         </div>
         <div className="flex-grow"> {/* Adjusted to take full width */}
-          <Marquee gradient={true}
+          <Marquee gradient={false}
             gradientColor="#111827" speed={70} gradientWidth={300} /* Adjusted gradientWidth for mobile */
           >
             <p className="text-sm font-medium text-white-600 underline underline-offset-4 decoration-3 decoration-solid decoration-sky-500">
