@@ -28,6 +28,7 @@
     "flowbite": "^2.2.1",
     "flowbite-react": "^0.7.2",
     "howler": "^2.2.4",
+    "langchain": "^0.1.4",
     "lucide-react": "^0.302.0",
     "next": "14.0.4",
     "pg": "^8.11.3",
