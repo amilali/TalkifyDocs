@@ -1,11 +1,14 @@
 import AWS from 'aws-sdk';
 import {PDFLoader} from 'langchain/document_loaders/fs/pdf';
-import { Pinecone, PineconeConfiguration } from '@pinecone-database/pinecone';
+import { Pinecone, PineconeConfiguration, PineconeRecord} from '@pinecone-database/pinecone';
 import { downloadFormS3 } from './s3-server';
 import {
   Document,
   RecursiveCharacterTextSplitter,
 } from "@pinecone-database/doc-splitter";
+import { getEmbeddings } from '../embeddings';
+import md5 from 'md5';
+import { convertToAscii } from '../utils';
 
 export const getPineconeClient = () => {
     return new Pinecone({
@@ -34,7 +37,37 @@ export async function loadS3IntoPinecone(fileKey:string){
     const document = await Promise.all(pages.map(prepareDocument));
 
     // vectorize the docs and embed them
-    const vectorizedDocuments = await Promise.all(
+    const vectors = await Promise.all(document.flat().map(enbedDocument));
+
+    // upload the vectors to pinecone
+    const client = await getPineconeClient();
+    const pineconeIndex = client.Index('talkify-docs');  
+
+    console.log('inserting vector into pinecone');
+    const namespace = pineconeIndex.namespace(convertToAscii(fileKey));
+
+    console.log("inserting vectors into pinecone");
+    await namespace.upsert(vectors);
+
+    return document[0];
+}
+
+async function enbedDocument(doc: Document) {
+    try {
+       const embeddings = await getEmbeddings(doc.pageContent);
+        const hash = md5(doc.pageContent);
+        return {
+            id: hash,
+            values: embeddings,
+            metadata : {
+                text: doc.metadata.text,
+                pageNumber: doc.metadata.pageNumber,
+            }
+        } as PineconeRecord;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }
  
 export const truncateStringByBytes = (str: string, bytes: number) => {
