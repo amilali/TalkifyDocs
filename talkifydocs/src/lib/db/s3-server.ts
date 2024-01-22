@@ -11,13 +11,13 @@ export async function downloadFormS3(fileKey:string){
         region: 'ap-southeast-1',
     });
     const params = {
-        Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME,
+        Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME!,
         Key: fileKey,
     };
 
     const obj = await s3.getObject(params).promise();
-    const file_name = `/tmp/pdf-${Date.now()}.pdf`;
-    fs.writeFileSync(file_name, obj.Body as Buffer);
+    const file_name = `/temp/pdf-${Date.now()}.pdf`;
+    fs.writeFileSync(file_name, obj.Body as Buffer);    
     return file_name;
     } catch (error) {
         console.log(error);

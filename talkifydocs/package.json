@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "set NODE_OPTIONS=--max-old-space-size=8192 && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^4.29.1",
     "@clerk/themes": "^1.7.9",
     "@neondatabase/serverless": "^0.6.1",
+    "@pinecone-database/doc-splitter": "^0.0.1",
     "@pinecone-database/pinecone": "^2.0.1",
     "@radix-ui/react-popover": "1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
@@ -31,6 +32,7 @@
     "langchain": "^0.1.4",
     "lucide-react": "^0.302.0",
     "next": "14.0.4",
+    "pdf-parse": "^1.1.1",
     "pg": "^8.11.3",
     "react": "^18",
     "react-content-loader": "^6.2.1",

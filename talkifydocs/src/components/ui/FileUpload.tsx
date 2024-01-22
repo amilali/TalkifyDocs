@@ -38,6 +38,7 @@ const FileUpload = () => {
                 }
                 mutate(data, {
                     onSuccess: (data) => {
+                        console.log(data);
                         toast.success("Scanned successfully!");
                     },
                     onError: (error) => {
