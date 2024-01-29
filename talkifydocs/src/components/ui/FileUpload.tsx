@@ -1,6 +1,6 @@
 'use client';
 import { uploadFileToS3 } from '@/lib/s3'
-import { Mutation, useMutation } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { Inbox } from 'lucide-react'
 import React from 'react'
 import { useDropzone } from 'react-dropzone'
@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 const FileUpload = () => {
     const router = useRouter();
     const [uploading, setUploading] = React.useState(false);
+    
     const { mutate, isPending } = useMutation({
         mutationFn: async ({ file_key, file_name }: { file_key: string, file_name: string }) => {
             const response = await axios.post('/api/create-chat', { file_key, file_name });
@@ -34,16 +35,18 @@ const FileUpload = () => {
             try {
                 setUploading(true);
                 const data = await uploadFileToS3(file);
+                console.log('data=>'+data);
                 if (!data?.file_key || !data.file_name) {
-                    toast.error("Something went wrong!");   
+                    toast.error("Something went wrong!");
                     return;
                 }
                 mutate(data, {
-                    onSuccess: ({chat_id}) => {                        
+                    onSuccess: ({ chat_id }) => {
+                        console.log(chat_id);
                         toast.success("Scanned successfully!");
-                            router.push(`/chat/${chat_id}`);
+                        router.push(`/chat/${chat_id}`);
                     },
-                    onError: (error) => {
+                    onError: (error) => {   
                         toast.error("Error creating chat");
                         console.log(error);
                     }
@@ -63,7 +66,10 @@ const FileUpload = () => {
             })}>
                 <input {...getInputProps()} />
                 <div className='flex flex-col justify-center items-center m-5'>
-                    {(uploading || isPending) ? (<><Loader color="#2779e4" /></>) : (<><Inbox className="w-10 h-10 text-blue-500" /> <p className="mt-2 text-sm text-slate-400">Drop PDF Here</p></>)}
+                    {(uploading || isPending) ? (<><Loader color="#2779e4" />            
+                    <p className="mt-2 text-sm text-slate-400">
+                        Spilling Tea to GPT...
+                    </p></>) : (<><Inbox className="w-10 h-10 text-blue-500" /> <p className="mt-2 text-sm text-slate-400">Drop PDF Here</p></>)}
                 </div>
             </div>
         </div>

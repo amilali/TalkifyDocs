@@ -23,7 +23,7 @@ export default async function Home() {
 
   return (
     <>
-      <Theme appearance="light" accentColor="mint">
+      <Theme appearance="light" accentColor="mint" suppressHydrationWarning>
 
         <div className="min-w-dvw min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 via-sky-600 via-10% to-slate-950 to-60% flex items-center justify-center">
           <div className="text-center w-screen">

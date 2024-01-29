@@ -1,4 +1,3 @@
-import AWS from 'aws-sdk';
 import {PDFLoader} from 'langchain/document_loaders/fs/pdf';
 import { Pinecone, PineconeConfiguration, PineconeRecord} from '@pinecone-database/pinecone';
 import { downloadFormS3 } from './s3-server';
@@ -10,10 +9,10 @@ import { getEmbeddings } from '../embeddings';
 import md5 from 'md5';
 import { convertToAscii } from '../utils';
 
-export const getPineconeClient = () => {
-    return new Pinecone({
-        environment: process.env.NEXT_PUBLIC_PINECONE_ENVIRONMENT!,
-        apiKey: process.env.NEXT_PUBLIC_PINECONE_KEY!,
+export const getPineconeClient = async() => {
+    return await new Pinecone({
+        environment: process.env.NEXT_PUBLIC_PINECONE_ENVIRONMENT ?? ' ',
+        apiKey: process.env.NEXT_PUBLIC_PINECONE_KEY ?? ' ',
     } as PineconeConfiguration);
 };
 
@@ -40,8 +39,9 @@ export async function loadS3IntoPinecone(fileKey:string){
     const vectors = await Promise.all(document.flat().map(enbedDocument));
 
     // upload the vectors to pinecone
-    const client = await getPineconeClient();
-    const pineconeIndex = client.Index('talkify-docs');  
+  
+    const client =  await getPineconeClient();
+    const pineconeIndex = await client.Index('talkify-docs');
 
     console.log('inserting vector into pinecone');
     const namespace = pineconeIndex.namespace(convertToAscii(fileKey));

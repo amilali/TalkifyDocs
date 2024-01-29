@@ -6,7 +6,7 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 export async function POST(req:Request, res:Response) {
-    const {userId} = await auth();
+    const {userId} = auth();
     if(!userId){
         return NextResponse.json({error: "Unauthorized"}, {status: 401});
     }
