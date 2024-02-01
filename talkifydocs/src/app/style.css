@@ -1,27 +1,48 @@
+@font-face {
+    font-family: 'Mark1'; /* Choose a name for your custom font */
+    src: url('https://res.cloudinary.com/djcmgdn0x/raw/upload/v1706809349/mark1_wqdwd2.woff') format('woff2'); /* Specify the path to your font file and its format */
+}
 
 body::-webkit-scrollbar {
     display: none;
 }
+p{
+font-family: Mark1;
 
+}
 h1{
 color: white;
 }
-.btn{
-    /* color: rgb(255, 255, 255); */
-    /* background-color: transparent;    */
-    margin-top: 10px;
+.btn {
+    background: -webkit-linear-gradient(to bottom, #052f60 0%, #002441 50%, #001c35 51%, #00121f 100%);
+    background: linear-gradient(to bottom, #052f60 0%, #002441 50%, #001c35 51%, #00121f 100%);
+    margin-top: 20px;
     margin-bottom: 10px;
-    /* border: 2px solid white; */
+    -webkit-transition: background 1s, transform 0.5s;
+    transition: all 0.3s ease-in-out;
+    /* display: inline-block; */
+    /* padding: 10px 20px; */
+    border: none;
+    cursor: pointer;
+    /* position: relative; */
 }
-.btn:hover{
-    background-color: #fff;
-    color: black;
+.hp-text{
+color: #ffffffb1;
+    background-image: url(https://res.cloudinary.com/djcmgdn0x/video/upload/v1706119268/pexels-eva-elijas-7639979_1080p_wdkimw.mp4);
+    -webkit-background-clip: text;
+    background-repeat: repeat;
+    background-size: contain; 
+  mix-blend-mode: hard-light;
+}
+
+.btn:hover {
+    background: white;
+    color: rgb(0, 0, 0);
     box-shadow: 18px 18px 250px 50px #ffffff80;
-   
 }
+
 .btn:active{
  box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.611) inset, 18px 18px 250px 50px #ffffff80;
-
 }
 img{
 margin-bottom: 0px;

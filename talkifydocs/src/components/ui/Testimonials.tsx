@@ -15,11 +15,11 @@ const Testimonials = () => {
         pauseOnHover={true}
         // style={{ transform: 'rotate(-5deg)', overflow: 'hidden' }}
       >
-        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1703926537/Group_3606_gxlvha.png' name='TalkifyDocs'/>
-        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1703926537/Group_3607_cgieow.png' name='TalkifyDocs'/>
-        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1703926537/Group_3609_csunzs.png' name='TalkifyDocs'/>
-        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1703926535/Group_3608_fujcdo.png' name='TalkifyDocs'/>
-        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1703926531/test-1_yzqglv.png' name='TalkifyDocs'/>
+        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1706805921/Group_3616_k6ave3.png' name='TalkifyDocs'/>
+        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1706805921/Group_3609_3_ucw1mv.png' name='TalkifyDocs'/>
+        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1706805921/Group_3609_2_omcnhh.png' name='TalkifyDocs'/>
+        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1706805922/Group_3609_5_nu682v.png' name='TalkifyDocs'/>
+        <Logo link='https://res.cloudinary.com/djcmgdn0x/image/upload/v1706805921/Group_3609_4_y4xbdd.png' name='TalkifyDocs'/>
       </Marquee>
     </div>
   );

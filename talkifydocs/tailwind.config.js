@@ -60,6 +60,16 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+          slideIn: {
+              from: {
+                opacity: '0',
+                transform: 'translateY(-20%)',
+              },
+              to:{
+                opacity: '1',
+                transform: 'translateY(0)',
+              },
+      },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -70,7 +80,10 @@ module.exports = {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
+        "slideIn": "slideIn 1s ease var(--slideIn-d, 0) forwards",
+        "slideIn-500": "slideIn 1s ease 600ms forwards",
+        "slideIn-700": "slideIn 1s ease 600ms forwards",
+        "accordion-down": "accordion-down 1s ease 600ms",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },

@@ -25,9 +25,9 @@ export default async function Home() {
     <>
       <Theme appearance="light" accentColor="mint" suppressHydrationWarning>
 
-        <div className="min-w-dvw min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 via-sky-600 via-10% to-slate-950 to-60% flex items-center justify-center">
+        <div className="min-w-dvw min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-600 via-sky-600 via-10% to-slate-950 to-60% flex items-center justify-center">
           <div className="text-center w-screen">
-            <div className="flex items-center mb-4">
+            <div className="animate-slideIn [--slideIn-d:300ms] opacity-0 flex items-center mb-4">
               <img
                 src="https://res.cloudinary.com/djcmgdn0x/image/upload/v1703599406/Group_3602_1_zkvanv.png"
                 alt=""
@@ -39,7 +39,7 @@ export default async function Home() {
               {isAuth ? (
                 <>
                   <FileUpload />
-                  <div className="flex mt-4 justify-center">
+                  <div className="animate-slideIn-500 opacity-0 flex mt-4 justify-center">
                     {isAuth && (
                       <span className='flex items-center'>
                         <span className="relative ring-sky-500 ring-inset">
@@ -57,23 +57,24 @@ export default async function Home() {
                 </>
               ) : (
                 <>
-                  <p className="text-xs  md:text-sm lg:text-sm max-w-xl mx-auto mt-4 ">
+                  <p className="animate-slideIn-500 opacity-0 hp-text text-xs md:text-sm lg:text-2xl max-w-4xl font-bold mx-auto mt-4 stroke-white">
                     Join millions of students, researchers, and professionals to instantly answer questions and understand research with AI.
                   </p>
                   <Link href="/sign-in">
-                    <Button className="btn">
+                    <Button className="animate-slideIn-500 opacity-0 btn">
                       Start Chatting - <i className='underline underline-offset-4 decoration-3 decoration-solid decoration-blue-200'>it's free</i>
                       <LogIn className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
-                  <div className='Rating'><CircularAvatar /><Ratingg /></div>
-                  <Testimonials />
-                  <p className="text-xs md:text-sm lg:text-sm max-w-xl mx-auto mt-4 bottom-0">
+                  <div className='animate-slideIn-700 opacity-0 Rating'><CircularAvatar /><Ratingg /></div>
+                 
+                  <p className="animate-slideIn-700 opacity-0  text-xs md:text-sm lg:text-sm max-w-xl mx-auto mt-4 bottom-0">
                     Made with &#10084; by <Link href="https://www.linkedin.com/in/amilali/" target="_blank" className="underline font-medium">Amil Ali</Link> 🚀
-                  </p><TopBanner />
+                  </p><TopBanner /> 
                 </>
               )}
             </div>
+          {(!isAuth) ? <div className='h-dvh mt-10'><Testimonials /></div>: null}
           </div>
         </div>
 

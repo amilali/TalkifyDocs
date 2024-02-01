@@ -9,14 +9,21 @@ import toast from 'react-hot-toast'
 import { Loader } from '../Loader'
 import { useRouter } from 'next/navigation';
 
+
 const FileUpload = () => {
     const router = useRouter();
     const [uploading, setUploading] = React.useState(false);
     
     const { mutate, isPending } = useMutation({
         mutationFn: async ({ file_key, file_name }: { file_key: string, file_name: string }) => {
+            console.log("mutationFn");
+            try {
             const response = await axios.post('/api/create-chat', { file_key, file_name });
-            return response.data;
+            console.log(response);
+            return response.data; 
+            } catch (error) {
+                console.log(error);
+            }
         }
     });
 
@@ -41,10 +48,10 @@ const FileUpload = () => {
                     return;
                 }
                 mutate(data, {
-                    onSuccess: ({ chat_id }) => {
-                        console.log(chat_id);
+                    onSuccess: ({ chatid }) => {
+                        console.log(chatid);
                         toast.success("Scanned successfully!");
-                        router.push(`/chat/${chat_id}`);
+                        router.push(`/chat/${chatid}`);
                     },
                     onError: (error) => {   
                         toast.error("Error creating chat");

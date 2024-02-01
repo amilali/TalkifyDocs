@@ -1,5 +1,5 @@
 import {PDFLoader} from 'langchain/document_loaders/fs/pdf';
-import { Pinecone, PineconeConfiguration, PineconeRecord} from '@pinecone-database/pinecone';
+import { Pinecone, PineconeRecord} from '@pinecone-database/pinecone';
 import { downloadFormS3 } from './s3-server';
 import {
   Document,
@@ -9,17 +9,17 @@ import { getEmbeddings } from '../embeddings';
 import md5 from 'md5';
 import { convertToAscii } from '../utils';
 
-export const getPineconeClient = async() => {
-    return await new Pinecone({
-        environment: process.env.NEXT_PUBLIC_PINECONE_ENVIRONMENT ?? ' ',
-        apiKey: process.env.NEXT_PUBLIC_PINECONE_KEY ?? ' ',
-    } as PineconeConfiguration);
+export const getPineconeClient = () => {
+  return new Pinecone({
+    environment: process.env.NEXT_PUBLIC_PINECONE_ENVIRONMENT ?? " ",
+    apiKey: process.env.NEXT_PUBLIC_PINECONE_KEY ?? " ",
+  });
 };
-
+// This is the nullish coalescing operator (??). It returns the right-hand operand if the left-hand operand is null or undefined
 type PDFpage ={
 pageContent:string;
 metadata:{
-    loc:{pageNumber:number};
+  loc:{pageNumber:number};
 }
 }
 
@@ -29,6 +29,7 @@ export async function loadS3IntoPinecone(fileKey:string){
     if(!file_name){
     throw new Error('file not found');
     }
+    console.log("loading pdf into memory" + file_name);
     const loader = new PDFLoader(file_name);
     const pages = (await loader.load()) as PDFpage[];
     
@@ -40,8 +41,9 @@ export async function loadS3IntoPinecone(fileKey:string){
 
     // upload the vectors to pinecone
   
-    const client =  await getPineconeClient();
-    const pineconeIndex = await client.Index('talkify-docs');
+    const client =  getPineconeClient();
+    client ? console.log("working pincone") : console.log("not working pinecone");
+    const pineconeIndex = client.Index('talkify-docs');
 
     console.log('inserting vector into pinecone');
     const namespace = pineconeIndex.namespace(convertToAscii(fileKey));
@@ -53,21 +55,23 @@ export async function loadS3IntoPinecone(fileKey:string){
 }
 
 async function enbedDocument(doc: Document) {
-    try {
-       const embeddings = await getEmbeddings(doc.pageContent);
-        const hash = md5(doc.pageContent);
-        return {
-            id: hash,
-            values: embeddings,
-            metadata : {
-                text: doc.metadata.text,
-                pageNumber: doc.metadata.pageNumber,
-            }
-        } as PineconeRecord;
-    } catch (error) {
-        console.log(error);
-        throw error;
-    }
+  try {
+
+    const embeddings = await getEmbeddings(doc.pageContent);
+    const hash = md5(doc.pageContent);
+
+    return {
+      id: hash,
+      values: embeddings,
+      metadata: {
+        text: doc.metadata.text,
+        pageNumber: doc.metadata.pageNumber,
+      },
+    } as PineconeRecord;
+  } catch (error) {
+    console.log("error embedding document", error);
+    throw error;
+  }
 }
  
 export const truncateStringByBytes = (str: string, bytes: number) => {
