@@ -16,7 +16,7 @@ const FileUpload = () => {
     
     const { mutate, isPending } = useMutation({
         mutationFn: async ({ file_key, file_name }: { file_key: string, file_name: string }) => {
-            console.log("mutationFn");
+            // console.log("mutationFn");
             try {
             const response = await axios.post('/api/create-chat', { file_key, file_name });
             console.log(response);
@@ -32,7 +32,7 @@ const FileUpload = () => {
         maxFiles: 1,
         multiple: false,
         onDrop: async (acceptedFiles) => {
-            console.log(acceptedFiles)
+            // console.log(acceptedFiles)
             const file = acceptedFiles[0];
             if (file.size > 10 * 1024 * 1024) {
                 toast.error("File size is too big!");
@@ -42,14 +42,14 @@ const FileUpload = () => {
             try {
                 setUploading(true);
                 const data = await uploadFileToS3(file);
-                console.log('data=>'+data);
+                // console.log('data=>'+data);
                 if (!data?.file_key || !data.file_name) {
                     toast.error("Something went wrong!");
                     return;
                 }
                 mutate(data, {
                     onSuccess: ({ chatid }) => {
-                        console.log(chatid);
+                        // console.log(chatid);
                         toast.success("Scanned successfully!");
                         router.push(`/chat/${chatid}`);
                     },

@@ -24,7 +24,7 @@ metadata:{
 }
 
 export async function loadS3IntoPinecone(fileKey:string){
-    console.log('downloading s3 files from system');
+    // console.log('downloading s3 files from system');
     const file_name = await downloadFormS3(fileKey);    
     if(!file_name){
     throw new Error('file not found');
@@ -42,13 +42,13 @@ export async function loadS3IntoPinecone(fileKey:string){
     // upload the vectors to pinecone
   
     const client =  getPineconeClient();
-    client ? console.log("working pincone") : console.log("not working pinecone");
+    // client ? console.log("working pincone") : console.log("not working pinecone");
     const pineconeIndex = client.Index('talkify-docs');
 
-    console.log('inserting vector into pinecone');
+    // console.log('inserting vector into pinecone');
     const namespace = pineconeIndex.namespace(convertToAscii(fileKey));
 
-    console.log("inserting vectors into pinecone");
+    // console.log("inserting vectors into pinecone");
     await namespace.upsert(vectors);
 
     return document[0];
