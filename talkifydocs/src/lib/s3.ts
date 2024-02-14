@@ -19,12 +19,12 @@ export async function uploadFileToS3(file: File) {
         };
 
         const upload = s3.putObject(params).on('httpUploadProgress', evt => {
-            console.log('Upload progress:', parseInt(((evt.loaded * 100) / evt.total).toString()) + '%');
+            // console.log('Upload progress:', parseInt(((evt.loaded * 100) / evt.total).toString()) + '%');
         }).promise();
 
         const data = await upload;
 
-        console.log(`Upload success: ${(data).toString()} and file: ${file_key}`);
+        // console.log(`Upload success: ${(data).toString()} and file: ${file_key}`);
 
         return Promise.resolve({ file_key, file_name: file.name });
 
