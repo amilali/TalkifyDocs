@@ -15,7 +15,6 @@ const mage = useParallax<HTMLDivElement>({
     rotateX: [300, 0, 'easeOutQuint'],
     opacity: [0.2, 1, 'easeInOutBack'],
     speed: -20,
-    
   });
   return (
 <>
