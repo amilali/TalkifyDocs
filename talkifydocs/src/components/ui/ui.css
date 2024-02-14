@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Mark1'; /* Choose a name for your custom font */
+    src: url('https://res.cloudinary.com/djcmgdn0x/raw/upload/v1706809349/mark1_wqdwd2.woff') format('woff2'); /* Specify the path to your font file and its format */
+}
+.mark1{font-family: Mark1;}
+
+.Chatbtn {
+    background: -webkit-linear-gradient(to bottom, #052f60 0%, #002441 50%, #001c35 31%, #00121f 100%);
+    background: linear-gradient(to bottom, #052f60 0%, #002441 50%, #001c35 51%, #00121f 100%);
+    -webkit-transition: background 1s, transform 0.5s;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    color: white;
+}
+.Chatbtn:hover {
+    background: white;
+    color: rgb(0, 0, 0);
+    box-shadow: 18px 18px 250px 50px #ffffff80;
+}
+.Chatbtn:active{
+ box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.611) inset, 18px 18px 250px 50px #ffffff80;
+}
+
+/* .bg-grad{
+    box-shadow: 18px 18px 120px 0px #0A3E5E 
+} */
+

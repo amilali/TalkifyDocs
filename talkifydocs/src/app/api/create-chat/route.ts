@@ -19,7 +19,7 @@ export async function POST(req: Request, res: Response) {
     const chat_id= await db
       .insert(chats)
       .values({
-        FileKey: file_key,
+        fileKey: file_key,
         pdfName: file_name,
         pdfUrl: getS3Url(file_key),
         userId,

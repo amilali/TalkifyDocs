@@ -5,7 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import Providers from '@/components/Providers'
 import { Toaster } from 'react-hot-toast';
 import { dark , neobrutalism  } from '@clerk/themes';
-
+import { Providers2 } from './providers2';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -26,7 +26,9 @@ export default function RootLayout({
           signIn: { baseTheme: neobrutalism },
         }}>
           <Providers>
+              <Providers2>
             {children}
+              </ Providers2>
           </Providers>
         </ClerkProvider>
         <Toaster />

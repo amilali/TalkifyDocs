@@ -7,7 +7,7 @@ export function CircularAvatar() {
     <div className="flex flex-wrap gap-2">
        <Avatar.Group>
       <Avatar
-        img="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/smokhfs2uevnppc2bmwl"
+        img="https://media.licdn.com/dms/image/D4D03AQH7RzooVhTPFw/profile-displayphoto-shrink_400_400/0/1696614706476?e=1712793600&v=beta&t=GpoW4YfSpjJb6DadU8RBcP1q1aGpEwe-lAkQjEO0AMw"
         rounded
         status="online"
         statusPosition="top-left" stacked

@@ -2,6 +2,7 @@
     font-family: 'Mark1'; /* Choose a name for your custom font */
     src: url('https://res.cloudinary.com/djcmgdn0x/raw/upload/v1706809349/mark1_wqdwd2.woff') format('woff2'); /* Specify the path to your font file and its format */
 }
+.mark1{font-family: Mark1;}
 
 body::-webkit-scrollbar {
     display: none;
@@ -20,12 +21,14 @@ color: white;
     margin-bottom: 10px;
     -webkit-transition: background 1s, transform 0.5s;
     transition: all 0.3s ease-in-out;
-    /* display: inline-block; */
-    /* padding: 10px 20px; */
-    border: none;
     cursor: pointer;
-    /* position: relative; */
 }
+
+.text-stroke {
+  color: transparent; 
+  -webkit-text-stroke: 0.2px #020817;
+}
+
 .hp-text{
 color: #ffffffb1;
     background-image: url(https://res.cloudinary.com/djcmgdn0x/video/upload/v1706119268/pexels-eva-elijas-7639979_1080p_wdkimw.mp4);
@@ -71,4 +74,10 @@ display: flex;
 align-items: center;
 justify-content:space-around;
 margin-top: 12px;
+}
+
+.bg-mesh{
+background-image: url('https://res.cloudinary.com/djcmgdn0x/image/upload/v1707320267/thumbnail_vnjryz.png');
+background-size: cover; 
+background-repeat: no-repeat;
 }

@@ -3,9 +3,8 @@ import ContentLoader from "react-content-loader"
 
 const Skeleton = (props) => (
 
-
   <ContentLoader 
-    speed={0.5}
+    speed={1.5}
     width={340}
     height={84}
     viewBox="0 0 340 84"
@@ -53,3 +52,20 @@ const Skeleton = (props) => (
 )
 
 export default Skeleton
+
+export const SideBarLoader = ({ ...props }) => (
+<ContentLoader
+  speed={2}
+  width={250} // Adjusted width to occupy sidebar width
+  height={615}
+  viewBox="0 0 250 615" // Adjusted viewBox accordingly
+  backgroundColor="#072843"
+  foregroundColor="#d9d9d9"
+  {...props}
+>
+  <circle cx="15" cy="30" r="13" />
+
+  <rect x="35" y="25" rx="4" ry="4" width="60" height="5" />
+  <rect x="0" y="50" rx="5" ry="5" width="250" height="470" /> {/* Adjusted width to occupy sidebar width */}
+</ContentLoader>
+)

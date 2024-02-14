@@ -69,6 +69,21 @@ module.exports = {
                 opacity: '1',
                 transform: 'translateY(0)',
               },
+          reflection: {
+              "0%, 100%": {
+              opacity: '0',
+              transform: 'translateY(-20%)',
+              filter: 'blur(5px)',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)' // Slight white color
+
+            },
+            "50%": {
+              opacity: '1',
+              transform: 'translateY(0)',
+              filter: 'blur(0)',
+              backgroundColor: 'rgba(255, 255, 255, 0)' // Transparent white color
+            },
+          }
       },
         "accordion-down": {
           from: { height: "0" },
@@ -85,6 +100,7 @@ module.exports = {
         "slideIn-700": "slideIn 1s ease 600ms forwards",
         "accordion-down": "accordion-down 1s ease 600ms",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "reflection": "reflection 1s ease-out infinite",
       },
     },
   },
