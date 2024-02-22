@@ -23,6 +23,26 @@ metadata:{
 }
 }
 
+async function enbedDocument(doc: Document) {
+  try {
+
+    const embeddings = await getEmbeddings(doc.pageContent);
+    const hash = md5(doc.pageContent);
+
+    return {
+      id: hash,
+      values: embeddings,
+      metadata: {
+        text: doc.metadata.text,
+        pageNumber: doc.metadata.pageNumber,
+      },
+    } as PineconeRecord;
+  } catch (error) {
+    console.log("error embedding document", error);
+    throw error;
+  }
+}
+
 export async function loadS3IntoPinecone(fileKey:string){
     // console.log('downloading s3 files from system');
     const file_name = await downloadFormS3(fileKey);    
@@ -54,25 +74,7 @@ export async function loadS3IntoPinecone(fileKey:string){
     return document[0];
 }
 
-async function enbedDocument(doc: Document) {
-  try {
 
-    const embeddings = await getEmbeddings(doc.pageContent);
-    const hash = md5(doc.pageContent);
-
-    return {
-      id: hash,
-      values: embeddings,
-      metadata: {
-        text: doc.metadata.text,
-        pageNumber: doc.metadata.pageNumber,
-      },
-    } as PineconeRecord;
-  } catch (error) {
-    console.log("error embedding document", error);
-    throw error;
-  }
-}
  
 export const truncateStringByBytes = (str: string, bytes: number) => {
   const enc = new TextEncoder();
@@ -81,15 +83,14 @@ export const truncateStringByBytes = (str: string, bytes: number) => {
 
 async function prepareDocument(page: PDFpage) {
   let { pageContent, metadata } = page;
-  pageContent = pageContent.replace(/\n/g, "");
-  // split the docs
+pageContent = pageContent.replace(/[\n-_']/g, "");
   const splitter = new RecursiveCharacterTextSplitter();
   const docs = await splitter.splitDocuments([
     new Document({
       pageContent,
       metadata: {
         pageNumber: metadata.loc.pageNumber,
-        text: truncateStringByBytes(pageContent, 36000),
+        text: truncateStringByBytes(pageContent, 360000),
       },
     }),
   ]);

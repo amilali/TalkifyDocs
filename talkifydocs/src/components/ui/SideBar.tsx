@@ -9,6 +9,7 @@ import './ui.css';
 import Link from "next/link";
 import { SideBarLoader } from '@/app/Skeleton';
 import { FaWandMagicSparkles } from "react-icons/fa6";
+import { RiLogoutBoxLine } from "react-icons/ri";
 
 
 const customTheme: CustomFlowbiteTheme['sidebar'] = {
@@ -26,7 +27,8 @@ export default async function SideBar({ chats, chatId }: Props) {
   return (
     <Sidebar theme={customTheme} aria-label="Sidebar with logo branding example" >
       <Sidebar.Logo href="#" img="https://res.cloudinary.com/djcmgdn0x/image/upload/v1706939138/wave-glow_lc2dyd.svg" className="object-cover h-16 w-20 text-sm" imgAlt="TalkifyDocs">
-        <h6 className="text-lg text-white">TalkifyDocs</h6>
+        <div className="flex justify-around items-center min-w-full">  <h6 className="text-lg text-white">TalkifyDocs</h6> <Link href={'/'}><RiLogoutBoxLine className="text-[#ffffff6c] hover:text-white ml-16" /></Link></div>
+
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup className="">

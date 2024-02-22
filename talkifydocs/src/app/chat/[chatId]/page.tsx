@@ -12,6 +12,8 @@ import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
 import React from "react";
 import { SideBarLoader } from "@/app/Skeleton";
+import PDFViewer from "@/components/PDFViewer";
+import ChatComponent from "@/components/ChatComponent";
 
 const SideBar = dynamic(() => import("@/components/ui/SideBar"), {
   loading: () => <SideBarLoader />, ssr: false,
@@ -36,6 +38,8 @@ const ChatPage = async({params: {chatId}}: Props) => {
     if (!_chats.find((chat) => chat.id === parseInt(chatId))) {
         return redirect("/");
     }
+
+  const currentChat = _chats.find((chat)=>chat.id === parseInt(chatId));
   return (
       <div className="min-w-dvw min-h-screen flex overflow-hidden bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-sky-600 via-sky-900 via-20% to-slate-950 to-75%">
       <div className='flex w-full max-h-screen '>
@@ -45,11 +49,13 @@ const ChatPage = async({params: {chatId}}: Props) => {
         </div>
         {/* pdf viewer */}
         <div className="max-h-screen p-4 oveflow-scroll flex-[5] bg-[#00000034] rounded-xl backdrop-blur-3xl mx-1 flex items-center justify-center">
-          {/* // <PDFViewer pdf_url={currentChat?.pdfUrl || ""} /> */} <center className="text-white">PDF SECTION</center>
+          <PDFViewer pdf_url={currentChat?.pdfUrl || ""} /> 
+          {/* <center className="text-white">PDF SECTION</center> */}
         </div>
         {/* chat component */}
         <div className="flex-[3] bg-[#00000034] backdrop-blur-3xl rounded-xl mx-1 flex items-center justify-center">
-          {/* <ChatComponent chatId={parseInt(chatId)} /> */} <center className="text-white">CHAT SECTION</center>
+          <ChatComponent chatId={parseInt(chatId)} /> 
+        {/* <center className="text-white">CHAT SECTION</center> */}
         </div>
       </div>
     </div>
