@@ -1,4 +1,4 @@
-![Logo](https://res.cloudinary.com/djcmgdn0x/image/upload/v1705394458/Group_3614_zlbtwp.png)
+![Logo](https://res.cloudinary.com/djcmgdn0x/image/upload/v1706939138/wave-glow_lc2dyd.svg)
 
 ### Join a vast community of students, researchers, and professionals, instantly addressing questions and comprehending research through the power of AI.
 
@@ -6,7 +6,6 @@
 
 - [AmilAli](https://github.com/amilali) ![Logo](https://res.cloudinary.com/djcmgdn0x/image/upload/c_scale,w_50/v1704878652/Untitled_design_5_1_rg3r1y.png)
 
-## How it Works?
 ### Snapshorts
 
 #### Upload Your PDF
@@ -15,7 +14,8 @@
 #### DashBoard
 ![Logo](https://res.cloudinary.com/djcmgdn0x/image/upload/v1708604534/3aac79ec-65f2-4752-b3a6-dabfb46f695a.png)
 
-
+## How it Works?
+![Logo](https://res.cloudinary.com/djcmgdn0x/image/upload/v1707414766/talkify_map_pnmgbs.svg)
 
 ## Run Locally
 
