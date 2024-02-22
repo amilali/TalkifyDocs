@@ -1,4 +1,4 @@
-![Logo](https://res.cloudinary.com/djcmgdn0x/image/upload/v1706939138/wave-glow_lc2dyd.svg)
+<img src="https://res.cloudinary.com/djcmgdn0x/image/upload/v1706939138/wave-glow_lc2dyd.svg" alt="Logo" width="150" height="150">
 
 ### Join a vast community of students, researchers, and professionals, instantly addressing questions and comprehending research through the power of AI.
 
